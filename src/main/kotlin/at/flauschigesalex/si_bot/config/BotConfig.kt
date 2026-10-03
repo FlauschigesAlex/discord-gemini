@@ -1,4 +1,6 @@
-package at.flauschigesalex.si_bot
+@file:OptIn(ConfigInternal::class)
+
+package at.flauschigesalex.si_bot.config
 
 import at.flauschigesalex.lib.base.file.FileManager
 import at.flauschigesalex.lib.base.file.json.JsonManager
@@ -8,11 +10,11 @@ import at.flauschigesalex.si_bot.ai.data.ChannelData
 import kotlinx.serialization.Serializable
 import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel
 import kotlin.time.Duration
-import kotlin.time.toKotlinDuration
-import java.time.Duration as JDuration
+import kotlin.time.Duration.Companion.minutes
 
 @Serializable
-class BotConfig private constructor() {
+@Suppress("RedundantNullableReturnType")
+class BotConfig @ConfigInternal private constructor() {
     companion object {
         private var instance: BotConfig? = null
         
@@ -33,10 +35,12 @@ class BotConfig private constructor() {
     }
     
     private val channelOverrides: MutableSet<ChannelData> = mutableSetOf()
-    val messages: MessageConfig = MessageConfig()
+    
+    val Messages: MessageConfig = MessageConfig()
+    val RateLimits: UserRateLimit? = UserRateLimit()
     
     val contextSize: UInt = 10u
-    val contextMemory: Duration = JDuration.ofMinutes(5).toKotlinDuration()
+    val contextMemory: Duration = 5.minutes
     
     fun getChannelOverride(channel: GuildMessageChannel): ChannelData =
         channelOverrides.find { it == channel } ?: this.getDefaultChannelData()
@@ -45,25 +49,5 @@ class BotConfig private constructor() {
         channelOverrides.find { it.channelId == ChannelData.defaultId } ?: ChannelData.default
 }
 
-@Serializable
-class MessageConfig internal constructor() {
-    companion object;
-    
-    fun randomThinking(): String = thinking.randomOrNull() ?: "Thinking..."
-    private val thinking: List<String> = listOf(
-        "Working on it...",
-        "Just a moment...",
-        "Hang on...",
-        "Thinking...",
-        "Crafting response..."
-    )
-
-    fun randomFailure(): String = failure.randomOrNull() ?: "I'm sorry, but I couldn't process your request."
-    val failure: List<String> = listOf(
-        "I'm sorry, but I couldn't process your request.",
-        "Oops, something went wrong. Please try again later.",
-        "Sorry, I'm having trouble with that. Can you try again?",
-        "I'm sorry, but I wasn't able to provide a response at this time.",
-        "I'm sorry, but I wasn't able to process your request at this time."
-    )
-}
+@RequiresOptIn("", RequiresOptIn.Level.ERROR)
+annotation class ConfigInternal

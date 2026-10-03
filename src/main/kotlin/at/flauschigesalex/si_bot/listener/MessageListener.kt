@@ -1,15 +1,18 @@
 package at.flauschigesalex.si_bot.listener
 
 import at.flauschigesalex.lib.discord.listener.DiscordListener
-import at.flauschigesalex.si_bot.BotConfig
+import at.flauschigesalex.si_bot.config.BotConfig
 import at.flauschigesalex.si_bot.JDA
 import at.flauschigesalex.si_bot.ai.AIPrompt
 import at.flauschigesalex.si_bot.ai.Koog
 import at.flauschigesalex.si_bot.ai.data.ResponseAction
+import at.flauschigesalex.si_bot.config.UserRateLimit.Companion.addRateLimit
+import at.flauschigesalex.si_bot.config.UserRateLimit.Companion.isRateLimitedUntil
 import at.flauschigesalex.si_bot.utils.serializer.Serialized
 import net.dv8tion.jda.api.entities.Message
 import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
+import org.slf4j.event.EventConstants
 import java.time.Instant
 import kotlin.time.toJavaDuration
 
@@ -21,13 +24,13 @@ private class MessageListener : DiscordListener() {
         val message = event.message
         val content = message.contentRaw
         
-        val author = event.member ?: return
-        val user = author.user
+        val member = event.member ?: return
+        val user = member.user
         
         val channel = message.channel as? GuildMessageChannel ?: return
         
         val BotConfig = BotConfig.INSTANCE
-        val BotMessages = BotConfig.messages
+        val BotMessages = BotConfig.Messages
 
         val action = BotConfig.getChannelOverride(channel).action
         val relation = message.messageReference?.message
@@ -45,6 +48,15 @@ private class MessageListener : DiscordListener() {
         
         if (shouldRespond.not()) return
         
+        member.isRateLimitedUntil?.let {
+            val rateLimitMessage = BotMessages.randomRateLimit()
+                .replace("%duration%", "<t:${it.epochSeconds}:R>")
+            
+            message.reply(rateLimitMessage).queue()
+            return
+        }
+        
+        member.addRateLimit()
         message.reply(BotMessages.randomThinking()).queue { message ->
             val userPrompt = content.replace(mention, "").trim()
             
