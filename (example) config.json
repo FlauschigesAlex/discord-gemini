@@ -1,0 +1,12 @@
+{
+  "channelOverrides": [
+    {
+      "_id": "_default",
+      "action": "NEVER_REPLY"
+    },
+    {
+      "_id": "<YOUR_CHANNEL_ID>",
+      "action": "ALWAYS_REPLY"
+    }
+  ]
+}
