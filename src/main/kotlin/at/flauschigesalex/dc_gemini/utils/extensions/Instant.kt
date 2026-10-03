@@ -1,4 +1,4 @@
-package at.flauschigesalex.si_bot.utils.extensions
+package at.flauschigesalex.dc_gemini.utils.extensions
 
 import kotlin.time.Clock
 import kotlin.time.Instant

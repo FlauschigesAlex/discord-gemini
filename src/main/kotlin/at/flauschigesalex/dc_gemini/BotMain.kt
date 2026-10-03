@@ -1,4 +1,4 @@
-package at.flauschigesalex.si_bot
+package at.flauschigesalex.dc_gemini
 
 import at.flauschigesalex.lib.base.file.env.Environment
 import at.flauschigesalex.lib.base.file.json.JsonManager

@@ -1,6 +1,6 @@
-package at.flauschigesalex.si_bot.config
+package at.flauschigesalex.dc_gemini.config
 
-import at.flauschigesalex.si_bot.utils.extensions.now
+import at.flauschigesalex.dc_gemini.utils.extensions.now
 import kotlinx.serialization.Serializable
 import net.dv8tion.jda.api.entities.Member
 import kotlin.time.Clock

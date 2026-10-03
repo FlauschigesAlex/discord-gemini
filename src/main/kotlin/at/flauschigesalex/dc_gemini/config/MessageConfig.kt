@@ -1,4 +1,4 @@
-package at.flauschigesalex.si_bot.config
+package at.flauschigesalex.dc_gemini.config
 
 import kotlinx.serialization.Serializable
 

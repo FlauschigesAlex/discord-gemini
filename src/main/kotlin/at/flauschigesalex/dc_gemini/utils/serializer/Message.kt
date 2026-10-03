@@ -1,4 +1,4 @@
-package at.flauschigesalex.si_bot.utils.serializer
+package at.flauschigesalex.dc_gemini.utils.serializer
 
 import kotlinx.serialization.Serializable
 import net.dv8tion.jda.api.entities.Message

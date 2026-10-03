@@ -1,14 +1,14 @@
-package at.flauschigesalex.si_bot.listener
+package at.flauschigesalex.dc_gemini.listener
 
 import at.flauschigesalex.lib.discord.listener.DiscordListener
-import at.flauschigesalex.si_bot.config.BotConfig
-import at.flauschigesalex.si_bot.JDA
-import at.flauschigesalex.si_bot.ai.AIPrompt
-import at.flauschigesalex.si_bot.ai.Koog
-import at.flauschigesalex.si_bot.ai.data.ResponseAction
-import at.flauschigesalex.si_bot.config.UserRateLimit.Companion.addRateLimit
-import at.flauschigesalex.si_bot.config.UserRateLimit.Companion.isRateLimitedUntil
-import at.flauschigesalex.si_bot.utils.serializer.Serialized
+import at.flauschigesalex.dc_gemini.config.BotConfig
+import at.flauschigesalex.dc_gemini.JDA
+import at.flauschigesalex.dc_gemini.ai.AIPrompt
+import at.flauschigesalex.dc_gemini.ai.Koog
+import at.flauschigesalex.dc_gemini.ai.data.ResponseAction
+import at.flauschigesalex.dc_gemini.config.UserRateLimit.Companion.addRateLimit
+import at.flauschigesalex.dc_gemini.config.UserRateLimit.Companion.isRateLimitedUntil
+import at.flauschigesalex.dc_gemini.utils.serializer.Serialized
 import net.dv8tion.jda.api.entities.Message
 import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent

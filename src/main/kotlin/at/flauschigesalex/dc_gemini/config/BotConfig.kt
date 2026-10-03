@@ -1,12 +1,12 @@
 @file:OptIn(ConfigInternal::class)
 
-package at.flauschigesalex.si_bot.config
+package at.flauschigesalex.dc_gemini.config
 
 import at.flauschigesalex.lib.base.file.FileManager
 import at.flauschigesalex.lib.base.file.json.JsonManager
 import at.flauschigesalex.lib.base.file.json.deserializeOrThrow
 import at.flauschigesalex.lib.base.file.json.readJson
-import at.flauschigesalex.si_bot.ai.data.ChannelData
+import at.flauschigesalex.dc_gemini.ai.data.ChannelData
 import kotlinx.serialization.Serializable
 import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel
 import kotlin.time.Duration

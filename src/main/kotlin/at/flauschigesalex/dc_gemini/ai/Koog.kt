@@ -1,4 +1,4 @@
-package at.flauschigesalex.si_bot.ai
+package at.flauschigesalex.dc_gemini.ai
 
 import ai.koog.agents.core.agent.AIAgent
 import ai.koog.agents.core.agent.GraphAIAgent
@@ -6,9 +6,9 @@ import ai.koog.prompt.executor.clients.google.GoogleLLMClient
 import ai.koog.prompt.executor.clients.google.GoogleModels
 import ai.koog.prompt.executor.llms.MultiLLMPromptExecutor
 import at.flauschigesalex.lib.base.file.env.Environment
-import at.flauschigesalex.si_bot.JDA
-import at.flauschigesalex.si_bot.Json
-import at.flauschigesalex.si_bot.utils.serializer.SerializedMessage
+import at.flauschigesalex.dc_gemini.JDA
+import at.flauschigesalex.dc_gemini.Json
+import at.flauschigesalex.dc_gemini.utils.serializer.SerializedMessage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

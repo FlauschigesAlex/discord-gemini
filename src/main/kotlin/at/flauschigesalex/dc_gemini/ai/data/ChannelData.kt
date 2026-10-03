@@ -1,4 +1,4 @@
-package at.flauschigesalex.si_bot.ai.data
+package at.flauschigesalex.dc_gemini.ai.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

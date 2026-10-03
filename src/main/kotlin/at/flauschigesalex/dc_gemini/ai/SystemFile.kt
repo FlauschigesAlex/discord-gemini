@@ -1,8 +1,8 @@
-package at.flauschigesalex.si_bot.ai
+package at.flauschigesalex.dc_gemini.ai
 
 import at.flauschigesalex.lib.base.file.FileManager
 import at.flauschigesalex.lib.base.file.ResourceManager
-import at.flauschigesalex.si_bot.JDA
+import at.flauschigesalex.dc_gemini.JDA
 import net.dv8tion.jda.api.JDA
 
 object SystemFile {

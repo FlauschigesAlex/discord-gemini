@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>at.flauschigesalex.si_bot</groupId>
-    <artifactId>super-intelligence-bot</artifactId>
+    <groupId>at.flauschigesalex.dc_gemini</groupId>
+    <artifactId>discord-gemini-bot</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -134,7 +134,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>at.flauschigesalex.si_bot.Bot</mainClass>
+                            <mainClass>at.flauschigesalex.dc_gemini.Bot</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
